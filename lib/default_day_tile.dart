@@ -24,7 +24,7 @@ class CalendarroDayItem extends StatelessWidget {
     } else if (isToday) {
       boxDecoration = BoxDecoration(
           border: Border.all(
-            color: Colors.white,
+            color: Colors.purple,
             width: 1.0,
           ),
           shape: BoxShape.circle);
@@ -33,7 +33,7 @@ class CalendarroDayItem extends StatelessWidget {
     return Expanded(
         child: GestureDetector(
           child: Container(
-              height: 40.0,
+              height: 50.0,
               decoration: boxDecoration,
               child: Center(
                   child: Text(
