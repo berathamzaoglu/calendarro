@@ -31,7 +31,7 @@ class CalendarroDayItem extends StatelessWidget {
                                    
                                    );
     } else if (isToday) {
-      textColor = Colors.white,
+      //textColor = Colors.white,
       boxDecoration = BoxDecoration(color: Colors.purple,
           borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
