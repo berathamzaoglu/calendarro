@@ -42,7 +42,7 @@ class CalendarroDayItem extends StatelessWidget {
     return Expanded(
         child: GestureDetector(
           child: Container(
-              height: 50.0,
+              height: 35.0,
               decoration: boxDecoration,
               child: Center(
                   child: Text(
