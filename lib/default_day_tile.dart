@@ -12,7 +12,7 @@ class CalendarroDayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isWeekend = DateUtils.isWeekend(date);
-    var textColor = isWeekend ? Colors.deepOrange : Colors.black;
+    var textColor = isWeekend ? Color(0xff4a4a4a) : Color(0xff4a4a4a);
     bool isToday = DateUtils.isToday(date);
     calendarroState = Calendarro.of(context);
 
@@ -31,6 +31,7 @@ class CalendarroDayItem extends StatelessWidget {
                                    
                                    );
     } else if (isToday) {
+      textColor = Colors.white,
       boxDecoration = BoxDecoration(color: Colors.purple,
           borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
@@ -58,7 +59,7 @@ class CalendarroDayItem extends StatelessWidget {
                     
     style: TextStyle(
     fontFamily: 'Poppins',
-    color: Color(0xff4a4a4a),
+    color: textColor,
     fontSize: 18,
     fontWeight: FontWeight.w600,
     fontStyle: FontStyle.normal,),
