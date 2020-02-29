@@ -22,10 +22,10 @@ class CalendarroDayItem extends StatelessWidget {
     if (daySelected) {
       boxDecoration = BoxDecoration(color: Colors.pink,
                                      borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(25.0),
-                topRight: const Radius.circular(25.0),
-                bottomRight: const Radius.circular(25.0),
-                bottomLeft: const Radius.circular(25.0),
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
                 
               ),
                                    
