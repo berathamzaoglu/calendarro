@@ -44,21 +44,7 @@ class CalendarroDayItem extends StatelessWidget {
           
           );
       
-      Text(
-                    "${date.day}",
-                    textAlign: TextAlign.center,
-                    
-    style: TextStyle(
-    fontFamily: 'Poppins',
-    color: Colors.white,
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    fontStyle: FontStyle.normal,),
-                    
-                    
-                    
-                  //  style: TextStyle(color: textColor),
-                  ),
+     
     }
 
     return Expanded(
