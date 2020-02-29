@@ -32,11 +32,16 @@ class CalendarroDayItem extends StatelessWidget {
                                    );
     } else if (isToday) {
       boxDecoration = BoxDecoration(
-          border: Border.all(
-            color: Colors.purple,
-            width: 1.0,
+          borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                color: Colors.purple,
+              ),
+         
           ),
-          shape: BoxShape.circle);
+          );
     }
 
     return Expanded(
