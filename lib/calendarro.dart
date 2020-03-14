@@ -7,9 +7,6 @@ import 'package:calendarro/date_utils.dart';
 import 'package:calendarro/default_day_tile_builder.dart';
 import 'package:flutter/material.dart';
 
-int dongusure=1;
-
-
 abstract class DayTileBuilder {
   Widget build(BuildContext context, DateTime date, DateTimeCallback onTap);
 }
@@ -29,19 +26,20 @@ class Calendarro extends StatefulWidget {
   Widget weekdayLabelsRow;
   DateTimeCallback onTap;
   CurrentPageCallback onPageSelected;
-
+int dongusure=1;
   DateTime selectedDate;
   List<DateTime> selectedDates;
 
   int startDayOffset;
   CalendarroState state;
-
+  
   double dayTileHeight = 40.0;
   double dayLabelHeight = 40.0;
 
   Calendarro({
     Key key,
     this.startDate,
+    this.dongusure,
     this.endDate,
     this.displayMode = DisplayMode.WEEKS,
     this.dayTileBuilder,
