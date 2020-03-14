@@ -8,7 +8,7 @@ class CalendarroDayItem extends StatelessWidget {
   DateTime date;
   CalendarroState calendarroState;
   DateTimeCallback onTap;
-  int dongusure;
+  int dongusure=1;
   @override
   Widget build(BuildContext context) {
     bool isWeekend = DateUtils.isWeekend(date);
