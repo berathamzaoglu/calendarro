@@ -26,7 +26,7 @@ class Calendarro extends StatefulWidget {
   Widget weekdayLabelsRow;
   DateTimeCallback onTap;
   CurrentPageCallback onPageSelected;
-int dongusure=1;
+
   DateTime selectedDate;
   List<DateTime> selectedDates;
 
@@ -39,7 +39,7 @@ int dongusure=1;
   Calendarro({
     Key key,
     this.startDate,
-    this.dongusure,
+
     this.endDate,
     this.displayMode = DisplayMode.WEEKS,
     this.dayTileBuilder,
