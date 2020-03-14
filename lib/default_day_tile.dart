@@ -20,16 +20,30 @@ class CalendarroDayItem extends StatelessWidget {
 
     BoxDecoration boxDecoration;
     if (daySelected) {
-      boxDecoration = BoxDecoration(color: Colors.pink,
+     if(dongusure==0){
+                 boxDecoration = BoxDecoration(color: Colors.pink,
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
                 bottomLeft: const Radius.circular(10.0),
-                
-              ),
-                                   
-                                   );
+
+
+
+    }
+
+
+if(dongusure==1){
+                 boxDecoration = BoxDecoration(color: Colors.purple,
+                                     borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+
+
+
+    }
     } else if (isToday) {
       //textColor = Colors.white,
       boxDecoration = BoxDecoration(
