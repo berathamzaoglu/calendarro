@@ -26,7 +26,7 @@ class CalendarroDayItem extends StatelessWidget {
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),),),
 
 
 
@@ -39,7 +39,7 @@ if(dongusure==1){
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),),),
 
 
 
