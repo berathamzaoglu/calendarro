@@ -3,12 +3,12 @@ import 'package:calendarro/date_utils.dart';
 import 'package:flutter/material.dart';
 
 class CalendarroDayItem extends StatelessWidget {
-  CalendarroDayItem({this.date, this.calendarroState, this.onTap});
+  CalendarroDayItem({this.date, this.calendarroState, this.onTap, this.dongusure});
 
   DateTime date;
   CalendarroState calendarroState;
   DateTimeCallback onTap;
-
+  int dongusure;
   @override
   Widget build(BuildContext context) {
     bool isWeekend = DateUtils.isWeekend(date);
@@ -19,15 +19,16 @@ class CalendarroDayItem extends StatelessWidget {
     bool daySelected = calendarroState.isDateSelected(date);
 
     BoxDecoration boxDecoration;
-    if (daySelected) {
-     if(dongusure==0){
+    if (daySelected) { 
+      
+      if(dongusure==0){
                  boxDecoration = BoxDecoration(color: Colors.pink,
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),),),
-
+                bottomLeft: const Radius.circular(10.0),
+                                     ),);
 
 
     }
@@ -39,11 +40,15 @@ if(dongusure==1){
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),),),
+                bottomLeft: const Radius.circular(10.0),),);
 
 
 
     }
+                
+              
+                                   
+                                   
     } else if (isToday) {
       //textColor = Colors.white,
       boxDecoration = BoxDecoration(
@@ -99,7 +104,7 @@ if(dongusure==1){
       onTap(date);
     }
 
-    
+    calendarroState.setSelectedDate(date);
     calendarroState.setCurrentDate(date);
   }
 }
