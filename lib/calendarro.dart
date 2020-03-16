@@ -29,7 +29,9 @@ class Calendarro extends StatefulWidget {
 
   DateTime selectedDate;
   List<DateTime> selectedDates;
-
+  List<DateTime> rglselected;
+  List<DateTime> psmselected;
+  List<DateTime> ovlselected;
   int startDayOffset;
   CalendarroState state;
   
@@ -45,6 +47,9 @@ class Calendarro extends StatefulWidget {
     this.dayTileBuilder,
     this.selectedDate,
     this.selectedDates,
+    this.rglselected,
+    this.psmselected,
+    this.ovlselected,
     this.selectionMode = SelectionMode.SINGLE,
     this.onTap,
     this.onPageSelected,
@@ -73,9 +78,25 @@ class Calendarro extends StatefulWidget {
       weekdayLabelsRow = CalendarroWeekdayLabelsView();
     }
 
-    if (selectedDates == null) {
-      selectedDates = List();
+    if (rglselected == null) {
+      rglselected = List();
     }
+    
+     if (psmselected == null) {
+      psmselected= List();
+    }
+
+      if (ovlselected == null) {
+      ovlselected = List();
+    }
+
+
+
+
+
+
+
+
   }
 
   static CalendarroState of(BuildContext context) =>
@@ -85,7 +106,12 @@ class Calendarro extends StatefulWidget {
   CalendarroState createState() {
     state = CalendarroState(
         selectedDate: selectedDate,
-        selectedDates: selectedDates);
+        selectedDates: selectedDates,
+        rglselected: rglselected,
+        psmselected: psmselected,
+        ovlselected: ovlselected,
+
+        );
     return state;
   }
 
@@ -129,13 +155,19 @@ class Calendarro extends StatefulWidget {
 class CalendarroState extends State<Calendarro> {
   DateTime selectedDate;
   List<DateTime> selectedDates;
-
+  List<DateTime> rglselected;
+  List<DateTime> psmselected;
+  List<DateTime> ovlselected;
+  
   int pagesCount;
   PageView pageView;
 
   CalendarroState({
     this.selectedDate,
-    this.selectedDates
+    this.selectedDates,
+    this.rglselected,
+    this.psmselected,
+    this.ovlselected,
   });
 
   @override
@@ -167,6 +199,83 @@ class CalendarroState extends State<Calendarro> {
       }
     });
   }
+
+
+
+void setrglSelected(DateTime date) {
+    setState(() {
+      if (widget.selectionMode == SelectionMode.SINGLE) {
+        selectedDate = date;
+      } else {
+        bool dateSelected = false;
+
+        for (var i = rglselected.length - 1; i >= 0; i--) {
+          if (DateUtils.isSameDay(rglselected[i], date)) {
+            rglselected.removeAt(i);
+            dateSelected = true;
+          }
+        }
+
+        if (!dateSelected) {
+          rglselected.add(date);
+        }
+      }
+    });
+  }
+
+
+
+
+
+void setpsmSelected(DateTime date) {
+    setState(() {
+      if (widget.selectionMode == SelectionMode.SINGLE) {
+        selectedDate = date;
+      } else {
+        bool dateSelected = false;
+
+        for (var i = rglselected.length - 1; i >= 0; i--) {
+          if (DateUtils.isSameDay(psmselected[i], date)) {
+            psmselected.removeAt(i);
+            dateSelected = true;
+          }
+        }
+
+        if (!dateSelected) {
+          psmselected.add(date);
+        }
+      }
+    });
+  }
+
+
+
+
+
+void setovlSelected(DateTime date) {
+    setState(() {
+      if (widget.selectionMode == SelectionMode.SINGLE) {
+        selectedDate = date;
+      } else {
+        bool dateSelected = false;
+
+        for (var i = ovlselected.length - 1; i >= 0; i--) {
+          if (DateUtils.isSameDay(ovlselected[i], date)) {
+            ovlselected.removeAt(i);
+            dateSelected = true;
+          }
+        }
+
+        if (!dateSelected) {
+          ovlselected.add(date);
+        }
+      }
+    });
+  }
+
+
+
+
 
   void setCurrentDate(DateTime date) {
     setState(() {
@@ -216,7 +325,7 @@ class CalendarroState extends State<Calendarro> {
     child: pageView);
 
   }
-
+//jgvhbkjknlmşsxdrctfyvgubhınjomklşöööööööezrxdtcfygvubhkmlşlöiszrxdtcfygvubhkmlşlözrxetcrytgvubhınjklmvb
   bool isDateSelected(DateTime date) {
     if (widget.selectionMode == SelectionMode.MULTI) {
       final matchedSelectedDate = selectedDates.firstWhere((currentDate) =>
@@ -242,6 +351,12 @@ class CalendarroState extends State<Calendarro> {
       selectedDates.add(date);
     });
   }
+
+
+
+
+
+
 
   void update() {
     setState(() {});
