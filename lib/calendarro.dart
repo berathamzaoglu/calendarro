@@ -339,6 +339,66 @@ void setovlSelected(DateTime date) {
     }
   }
 
+
+
+bool isrglDateSelected(DateTime date) {
+    if (widget.selectionMode == SelectionMode.MULTI) {
+      final matchedSelectedDate = rglselected.firstWhere((currentDate) =>
+          DateUtils.isSameDay(currentDate, date),
+          orElse: () => null
+      );
+
+      return matchedSelectedDate != null;
+    } else {
+      return DateUtils.isSameDay(selectedDate, date);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+bool isovlDateSelected(DateTime date) {
+    if (widget.selectionMode == SelectionMode.MULTI) {
+      final matchedSelectedDate = ovlselected.firstWhere((currentDate) =>
+          DateUtils.isSameDay(currentDate, date),
+          orElse: () => null
+      );
+
+      return matchedSelectedDate != null;
+    } else {
+      return DateUtils.isSameDay(selectedDate, date);
+    }
+  }
+
+
+
+
+
+
+
+
+
+ bool ispsmDateSelected(DateTime date) {
+    if (widget.selectionMode == SelectionMode.MULTI) {
+      final matchedSelectedDate = psmselected.firstWhere((currentDate) =>
+          DateUtils.isSameDay(currentDate, date),
+          orElse: () => null
+      );
+
+      return matchedSelectedDate != null;
+    } else {
+      return DateUtils.isSameDay(selectedDate, date);
+    }
+  }
+
+
+
   void toggleDateSelection(DateTime date) {
     setState(() {
       for (var i = selectedDates.length - 1; i >= 0; i--) {
