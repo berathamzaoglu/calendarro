@@ -176,8 +176,8 @@ class CalendarroDayItem extends StatelessWidget {
       //textColor = Colors.white,
       boxDecoration = BoxDecoration(
     		gradient: LinearGradient(colors: [
-      Color(0xff00b300),
-      Color(0xff4dff4d) ],
+      Color(0xff68e0cf),
+      Color(0xff259cfa) ],
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
