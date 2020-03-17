@@ -12,7 +12,7 @@ class CalendarroDayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isWeekend = DateUtils.isWeekend(date);
-    var textColor = isWeekend ? Color(0xffffffff) : Color(0xffffffff);
+    var textColor = isWeekend ? Color(0xff444444) : Color(0xff444444);
     bool isToday = DateUtils.isToday(date);
     calendarroState = Calendarro.of(context);
 
