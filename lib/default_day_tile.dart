@@ -17,12 +17,12 @@ class CalendarroDayItem extends StatelessWidget {
     calendarroState = Calendarro.of(context);
 
     bool daySelected = calendarroState.isDateSelected(date);
-
-    BoxDecoration boxDecoration;
-    if (daySelected) { 
-      
-     
-
+    bool rgldaySelected = calendarroState.isrglDateSelected(date);
+    bool ovldaySelected = calendarroState.isrglDateSelected(date);
+    bool psmdaySelected = calendarroState.isrglDateSelected(date);
+      BoxDecoration boxDecoration;
+    
+    if (daySelected) {    
 
 
      boxDecoration = BoxDecoration(color: Colors.pink,
@@ -31,11 +31,7 @@ class CalendarroDayItem extends StatelessWidget {
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
                 bottomLeft: const Radius.circular(10.0),
-                                     ),);
-
-                
-              
-                                   
+                                     ),);           
                                    
     } else if (isToday) {
       //textColor = Colors.white,
@@ -58,6 +54,142 @@ class CalendarroDayItem extends StatelessWidget {
       
      
     }
+
+
+
+    if (rgldaySelected) {    
+
+
+     boxDecoration = BoxDecoration(color: Colors.blue,
+                                     borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                                     ),);           
+                                   
+    } else if (isToday) {
+      //textColor = Colors.white,
+      boxDecoration = BoxDecoration(
+    		gradient: LinearGradient(colors: [
+      Color(0xff68e0cf),
+      Color(0xff259cfa) ],
+    stops: [0,1],),
+
+          borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                
+              ),
+         
+          
+          );
+      
+     
+    }
+
+
+
+
+
+
+
+
+        if (ovldaySelected) {    
+
+
+     boxDecoration = BoxDecoration(color: Colors.green,
+                                     borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                                     ),);           
+                                   
+    } else if (isToday) {
+      //textColor = Colors.white,
+      boxDecoration = BoxDecoration(
+    		gradient: LinearGradient(colors: [
+      Color(0xff68e0cf),
+      Color(0xff259cfa) ],
+    stops: [0,1],),
+
+          borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                
+              ),
+         
+          
+          );
+      
+     
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (psmdaySelected) {    
+
+
+     boxDecoration = BoxDecoration(color: Colors.orange,
+                                     borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                                     ),);           
+                                   
+    } else if (isToday) {
+      //textColor = Colors.white,
+      boxDecoration = BoxDecoration(
+    		gradient: LinearGradient(colors: [
+      Color(0xff68e0cf),
+      Color(0xff259cfa) ],
+    stops: [0,1],),
+
+          borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                
+              ),
+         
+          
+          );
+      
+     
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return Expanded(
         child: GestureDetector(
