@@ -33,10 +33,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1]),
  
                                      borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                                      ),);           
                                    
     } else if (isToday) {
@@ -48,10 +48,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                 
               ),
          
@@ -72,10 +72,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1]),*/color: Color(0xffffe8e8),
     
                                      borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                                      ),);           
                                    
     } else if (isToday) {
@@ -87,10 +87,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                 
               ),
          
@@ -115,10 +115,10 @@ class CalendarroDayItem extends StatelessWidget {
       Color(0xffd487fb) ],
     stops: [0,1]),*/  color: Color(0xffE6E6FA),
                                      borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                                      ),);           
                                    
     } else if (isToday) {
@@ -130,10 +130,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                 
               ),
          
@@ -166,10 +166,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1],),*/                   
     color: Color(0xffe2ebff),
                                      borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                                      ),);           
                                    
     } else if (isToday) {
@@ -181,10 +181,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(70.0),
-                topRight: const Radius.circular(70.0),
-                bottomRight: const Radius.circular(70.0),
-                bottomLeft: const Radius.circular(70.0),
+                topLeft: const Radius.circular(30.0),
+                topRight: const Radius.circular(30.0),
+                bottomRight: const Radius.circular(30.0),
+                bottomLeft: const Radius.circular(30.0),
                 
               ),
          
