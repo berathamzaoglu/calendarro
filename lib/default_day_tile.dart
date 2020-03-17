@@ -25,7 +25,13 @@ class CalendarroDayItem extends StatelessWidget {
     if (daySelected) {    
 
 
-     boxDecoration = BoxDecoration(color: Colors.pink,
+     boxDecoration = BoxDecoration(
+  
+    		gradient: LinearGradient(colors: [
+      Color(0xffff825f),
+      Color(0xffff4c51) ],
+    stops: [0,1]),
+ 
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
@@ -36,9 +42,9 @@ class CalendarroDayItem extends StatelessWidget {
     } else if (isToday) {
       //textColor = Colors.white,
       boxDecoration = BoxDecoration(
-    		gradient: LinearGradient(colors: [
-      Color(0xff68e0cf),
-      Color(0xff259cfa) ],
+    			gradient: LinearGradient(colors: [
+      Color(0xff00b300),
+      Color(0xff4dff4d) ],
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
@@ -60,7 +66,10 @@ class CalendarroDayItem extends StatelessWidget {
     if (rgldaySelected) {    
 
 
-     boxDecoration = BoxDecoration(color: Colors.blue,
+     boxDecoration = BoxDecoration(	gradient: LinearGradient(colors: [
+      Color(0xffff825f),
+      Color(0xffff4c51) ],
+    stops: [0,1]),
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
@@ -72,8 +81,8 @@ class CalendarroDayItem extends StatelessWidget {
       //textColor = Colors.white,
       boxDecoration = BoxDecoration(
     		gradient: LinearGradient(colors: [
-      Color(0xff68e0cf),
-      Color(0xff259cfa) ],
+      Color(0xff00b300),
+      Color(0xff4dff4d) ],
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
@@ -100,7 +109,10 @@ class CalendarroDayItem extends StatelessWidget {
         if (ovldaySelected) {    
 
 
-     boxDecoration = BoxDecoration(color: Colors.green,
+     boxDecoration = BoxDecoration(	gradient: LinearGradient(colors: [
+      Color(0xff8a4bf9),
+      Color(0xffd487fb) ],
+    stops: [0,1]),
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
@@ -112,8 +124,8 @@ class CalendarroDayItem extends StatelessWidget {
       //textColor = Colors.white,
       boxDecoration = BoxDecoration(
     		gradient: LinearGradient(colors: [
-      Color(0xff68e0cf),
-      Color(0xff259cfa) ],
+      Color(0xff00b300),
+      Color(0xff4dff4d) ],
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
@@ -147,7 +159,10 @@ class CalendarroDayItem extends StatelessWidget {
         if (psmdaySelected) {    
 
 
-     boxDecoration = BoxDecoration(color: Colors.orange,
+     boxDecoration = BoxDecoration(	gradient: LinearGradient(colors: [
+      Color(0xff68e0cf),
+      Color(0xff259cfa) ],
+    stops: [0,1],),
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
@@ -159,8 +174,8 @@ class CalendarroDayItem extends StatelessWidget {
       //textColor = Colors.white,
       boxDecoration = BoxDecoration(
     		gradient: LinearGradient(colors: [
-      Color(0xff68e0cf),
-      Color(0xff259cfa) ],
+      Color(0xff00b300),
+      Color(0xff4dff4d) ],
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
