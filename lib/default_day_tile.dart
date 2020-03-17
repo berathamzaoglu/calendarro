@@ -18,8 +18,8 @@ class CalendarroDayItem extends StatelessWidget {
 
     bool daySelected = calendarroState.isDateSelected(date);
     bool rgldaySelected = calendarroState.isrglDateSelected(date);
-    bool ovldaySelected = calendarroState.isrglDateSelected(date);
-    bool psmdaySelected = calendarroState.isrglDateSelected(date);
+    bool ovldaySelected = calendarroState.isovlDateSelected(date);
+    bool psmdaySelected = calendarroState.ispsmDateSelected(date);
       BoxDecoration boxDecoration;
     
     if (daySelected) {    
