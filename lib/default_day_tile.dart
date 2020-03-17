@@ -48,10 +48,10 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1],),
 
           borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(0.0),
-                topRight: const Radius.circular(0.0),
-                bottomRight: const Radius.circular(0.0),
-                bottomLeft: const Radius.circular(0.0),
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
                 
               ),
          
@@ -66,10 +66,11 @@ class CalendarroDayItem extends StatelessWidget {
     if (rgldaySelected) {    
 
 
-     boxDecoration = BoxDecoration(	gradient: LinearGradient(colors: [
+     boxDecoration = BoxDecoration(	/*gradient: LinearGradient(colors: [
       Color(0xffff825f),
       Color(0xffff4c51) ],
-    stops: [0,1]),
+    stops: [0,1]),*/color: Color(0xffffe8e8),
+    
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
@@ -109,10 +110,10 @@ class CalendarroDayItem extends StatelessWidget {
         if (ovldaySelected) {    
 
 
-     boxDecoration = BoxDecoration(	gradient: LinearGradient(colors: [
+     boxDecoration = BoxDecoration(/*	gradient: LinearGradient(colors: [
       Color(0xff8a4bf9),
       Color(0xffd487fb) ],
-    stops: [0,1]),
+    stops: [0,1]),*/  color: Color(0xffE6E6FA),
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
@@ -168,7 +169,7 @@ class CalendarroDayItem extends StatelessWidget {
                 topLeft: const Radius.circular(0.0),
                 topRight: const Radius.circular(0.0),
                 bottomRight: const Radius.circular(0.0),
-                bottomLeft: const Radius.circular(0.0),
+                bottomLeft: const Radius.circular(00.0),
                                      ),);           
                                    
     } else if (isToday) {
