@@ -12,7 +12,7 @@ class CalendarroDayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isWeekend = DateUtils.isWeekend(date);
-     var textColor = isWeekend ? Color(0xffffffff) : Color(0xffffffff);
+    var textColor = isWeekend ? Color(0xffffffff) : Color(0xffffffff);
     bool isToday = DateUtils.isToday(date);
     calendarroState = Calendarro.of(context);
 
@@ -159,10 +159,11 @@ class CalendarroDayItem extends StatelessWidget {
         if (psmdaySelected) {    
 
 
-     boxDecoration = BoxDecoration(	gradient: LinearGradient(colors: [
-      Color(0xff68e0cf),
+     boxDecoration = BoxDecoration(	
+     /* Color(0xff68e0cf),
       Color(0xff259cfa) ],
-    stops: [0,1],),
+    stops: [0,1],),*/                   
+    color: Color(0xffe2ebff),
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
