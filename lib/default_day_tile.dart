@@ -166,10 +166,10 @@ class CalendarroDayItem extends StatelessWidget {
       Color(0xff259cfa) ],
     stops: [0,1],),
                                      borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(0.0),
-                topRight: const Radius.circular(0.0),
-                bottomRight: const Radius.circular(0.0),
-                bottomLeft: const Radius.circular(00.0),
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
                                      ),);           
                                    
     } else if (isToday) {
