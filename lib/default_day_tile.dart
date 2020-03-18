@@ -41,7 +41,12 @@ class CalendarroDayItem extends StatelessWidget {
       Color(0xffff825f),
       Color(0xffff4c51) ],
     stops: [0,1]),
-    
+     border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle
+      
     
 
     
