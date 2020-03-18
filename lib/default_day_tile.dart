@@ -12,7 +12,7 @@ class CalendarroDayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isWeekend = DateUtils.isWeekend(date);
-    var textColor = isWeekend ? Color(0xff444444) : Color(0xff444444);
+   
     bool isToday = DateUtils.isToday(date);
     calendarroState = Calendarro.of(context);
 
@@ -20,6 +20,8 @@ class CalendarroDayItem extends StatelessWidget {
     bool rgldaySelected = calendarroState.isrglDateSelected(date);
     bool ovldaySelected = calendarroState.isovlDateSelected(date);
     bool psmdaySelected = calendarroState.ispsmDateSelected(date);
+
+     var textColor = ovldaySelected ? Color(0xf0099FF) : Color(0xff444444);
       BoxDecoration boxDecoration;
     
     if (daySelected) {    
@@ -166,10 +168,10 @@ class CalendarroDayItem extends StatelessWidget {
       Color(0xff259cfa) ],
     stops: [0,1],),
                                      borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(10.0),
-                topRight: const Radius.circular(10.0),
-                bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),
+                topLeft: const Radius.circular(0.0),
+                topRight: const Radius.circular(0.0),
+                bottomRight: const Radius.circular(0.0),
+                bottomLeft: const Radius.circular(00.0),
                                      ),);           
                                    
     } else if (isToday) {
