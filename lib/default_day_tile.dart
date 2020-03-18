@@ -113,8 +113,8 @@ class CalendarroDayItem extends StatelessWidget {
 
 
      boxDecoration = BoxDecoration(gradient: LinearGradient(colors: [
-      Color(0xff8a4bf9),
-      Color(0xffd487fb) ],
+      Color(0xffffffff),
+      Color(0xffffffff) ],
     stops: [0,1]),
                                      borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
