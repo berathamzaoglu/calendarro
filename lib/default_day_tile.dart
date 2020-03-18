@@ -23,10 +23,12 @@ class CalendarroDayItem extends StatelessWidget {
 
      var textColor;
      if (ovldaySelected) {
-       textColor = Color(0xffffffff);
-     } else {
-       textColor = Color(0xff444444);
+       textColor = Color(0xff8a4bf9);
+     } 
+     if(rgldaySelected){
+     textColor = Color(0xffff4c51);
      }
+     if(psmdaySelected){textColor = Color(0xff259cfa);}
       BoxDecoration boxDecoration;
     
     if (daySelected) {    
@@ -72,8 +74,8 @@ class CalendarroDayItem extends StatelessWidget {
      boxDecoration = BoxDecoration(	
        gradient: LinearGradient(
         colors: [
-      Color(0xffff825f),
-      Color(0xffff4c51) ],
+      Color(0xffffffff),
+      Color(0xffffffff) ],
       stops: [0,1]),
       
           border: Border.all(
@@ -114,8 +116,8 @@ class CalendarroDayItem extends StatelessWidget {
 
 
      boxDecoration = BoxDecoration(gradient: LinearGradient(colors: [
-     Color(0xff8a4bf9),
-     Color(0xffd487fb) ],
+     Color(0xffffffff),
+     Color(0xffffffff) ],
     stops: [0,1]),
 
 
@@ -167,8 +169,8 @@ class CalendarroDayItem extends StatelessWidget {
 
     boxDecoration = BoxDecoration(
     		gradient: LinearGradient(colors: [
-      Color(0xff68e0cf),
-      Color(0xff259cfa) ],
+      Color(0xffffffff),
+      Color(0xffffffff) ],
     stops: [0,1],),
 
      border: Border.all(
