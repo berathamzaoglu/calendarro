@@ -49,6 +49,7 @@ class CalendarroDayItem extends StatelessWidget {
             width: 1.0,
           ),
           shape: BoxShape.circle);
+      
      
     }
 
@@ -57,21 +58,31 @@ class CalendarroDayItem extends StatelessWidget {
     if (rgldaySelected) {    
 
 
-     boxDecoration = BoxDecoration(	gradient: LinearGradient(colors: [
+     boxDecoration = BoxDecoration(	
+       gradient: LinearGradient(
+        colors: [
       Color(0xffff825f),
       Color(0xffff4c51) ],
-    stops: [0,1]),
-    
-                                     borderRadius: new BorderRadius.only(
+      stops: [0,1]),
+      
+          border: Border.all(
+            //color: Colors.black,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle
+      
+
+
+              /*borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),
-                                     ),);           
+                bottomLeft: const Radius.circular(10.0),),*/
+                                     );           
                                    
     } else if (isToday) {
       //textColor = Colors.white,
-      boxDecoration = BoxDecoration(
+          boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
             width: 1.0,
@@ -104,7 +115,7 @@ class CalendarroDayItem extends StatelessWidget {
                                    
     } else if (isToday) {
       //textColor = Colors.white,
-    boxDecoration = BoxDecoration(
+      boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
             width: 1.0,
@@ -145,12 +156,13 @@ class CalendarroDayItem extends StatelessWidget {
                                    
     } else if (isToday) {
       //textColor = Colors.white,
-      boxDecoration = BoxDecoration(
+        boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
             width: 1.0,
           ),
           shape: BoxShape.circle);
+      
      
     }
 
