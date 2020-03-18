@@ -29,6 +29,7 @@ class CalendarroDayItem extends StatelessWidget {
      textColor = Color(0xffff4c51);
      }
      if(psmdaySelected){textColor = Color(0xff259cfa);}
+    if(daySelected){textColor = Color(0xffffffff);}
       BoxDecoration boxDecoration;
     
     if (daySelected) {    
