@@ -20,48 +20,42 @@ class CalendarroDayItem extends StatelessWidget {
     bool rgldaySelected = calendarroState.isrglDateSelected(date);
     bool ovldaySelected = calendarroState.isovlDateSelected(date);
     bool psmdaySelected = calendarroState.ispsmDateSelected(date);
+    bool rglfrstdaySelected = calendarroState.isrglfrstDateSelected(date);
+    bool ovlfrstdaySelected = calendarroState.isovlfrstDateSelected(date);
+    bool psmfrstdaySelected = calendarroState.ispsmfrstDateSelected(date);
+
 
      var textColor;
-     if (ovldaySelected) {
-       textColor = Color(0xff8a4bf9);
-     } 
-     if(rgldaySelected){
-     textColor = Color(0xffff4c51);
-     }
-     if(psmdaySelected){textColor = Color(0xff259cfa);}
-    if(daySelected){textColor = Color(0xffffffff);}
+     if (ovldaySelected) {textColor = Color(0xff259cfa);} 
+     if(rgldaySelected){textColor = Color(0xffff4c51);}
+     if(psmdaySelected){textColor = Color(0xff8a4bf9);}
+     if(daySelected){textColor = Color(0xffffffff);}
+     if (ovlfrstdaySelected) {textColor = Color(0xffffffff);} 
+     if(rglfrstdaySelected){textColor = Color(0xffffffff);}
+     if(psmfrstdaySelected){textColor = Color(0xffffffff);}
+    
+    
+    
+    
+    
+    
+    
       BoxDecoration boxDecoration;
     
     if (daySelected) {    
-
-
-     boxDecoration = BoxDecoration(
-  
-    		gradient: LinearGradient(colors: [
+     boxDecoration = BoxDecoration(  
+     gradient: LinearGradient(colors: [
       Color(0xffff825f),
       Color(0xffff4c51) ],
     stops: [0,1]),
-     border: Border.all(
+           border: Border.all(
             color: Colors.white,
             width: 1.0,
           ),
-          shape: BoxShape.circle
-      
-    
-
-    
-                /*borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(10.0),
-                topRight: const Radius.circular(10.0),
-                bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),
-                                     ),*/
-                                     
-                                     
-                                     );           
+          shape: BoxShape.circle);           
                                    
     } else if (isToday) {
-      //textColor = Colors.white,
+
       boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
@@ -88,34 +82,17 @@ class CalendarroDayItem extends StatelessWidget {
             color: Colors.white,
             width: 1.0,
           ),
-          shape: BoxShape.circle
-      
-
-
-              /*borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(10.0),
-                topRight: const Radius.circular(10.0),
-                bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),),*/
-                                     );           
+          shape: BoxShape.circle);           
                                    
     } else if (isToday) {
-      //textColor = Colors.white,
+
           boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
             width: 1.0,
           ),
           shape: BoxShape.circle);
-      
-     
     }
-
-
-
-
-
-
 
 
         if (ovldaySelected) {    
@@ -131,48 +108,20 @@ class CalendarroDayItem extends StatelessWidget {
             color: Colors.white,
             width: 1.0,
           ),
-          shape: BoxShape.circle
-
-
-              /*borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(10.0),
-                topRight: const Radius.circular(10.0),
-                bottomRight: const Radius.circular(10.0),
-                bottomLeft: const Radius.circular(10.0),
-                                     ),*/
-                                     
-                                     
-                                     );           
+          shape: BoxShape.circle);           
                                    
     } else if (isToday) {
-      //textColor = Colors.white,
+
       boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
             width: 1.0,
           ),
           shape: BoxShape.circle);
-      
-     
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         if (psmdaySelected) {    
-
-
     boxDecoration = BoxDecoration(
     		gradient: LinearGradient(colors: [
       Color(0xffffffff),
@@ -184,32 +133,99 @@ class CalendarroDayItem extends StatelessWidget {
             color: Colors.white,
             width: 1.0,
           ),
-          shape: BoxShape.circle
-
-              /*borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(0.0),
-                topRight: const Radius.circular(0.0),
-                bottomRight: const Radius.circular(0.0),
-                bottomLeft: const Radius.circular(00.0),
-                                     ),*/
-                                     );           
+          shape: BoxShape.circle);           
                                    
     }else if (isToday) {
-      //textColor = Colors.white,
         boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
             width: 2.0,
           ),
           shape: BoxShape.circle);
-      
-     
     }
 
 
 
 
 
+
+
+
+    if (rglfrstdaySelected) {    
+
+
+     boxDecoration = BoxDecoration(	
+       gradient: LinearGradient(
+        colors: [
+      Color(0xffff825f),
+      Color(0xffff4c51) ],
+      stops: [0,1]),
+      
+          border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);           
+                                   
+    } else if (isToday) {
+
+          boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);
+    }
+
+
+        if (ovlfrstdaySelected) {    
+
+
+     boxDecoration = BoxDecoration(gradient: LinearGradient(colors: [
+     Color(0xff68e0cf),
+      Color(0xff259cfa) ],
+    stops: [0,1]),
+
+
+     border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);           
+                                   
+    } else if (isToday) {
+
+      boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);
+    }
+
+
+        if (psmfrstdaySelected) {    
+    boxDecoration = BoxDecoration(
+    		gradient: LinearGradient(colors: [
+     Color(0xff8a4bf9),
+      Color(0xffd487fb) ],
+    stops: [0,1],),
+
+     border: Border.all(
+     
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);           
+                                   
+    }else if (isToday) {
+        boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 2.0,
+          ),
+          shape: BoxShape.circle);
+    }
 
 
 
