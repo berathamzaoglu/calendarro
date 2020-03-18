@@ -21,7 +21,7 @@ class CalendarroDayItem extends StatelessWidget {
     bool ovldaySelected = calendarroState.isovlDateSelected(date);
     bool psmdaySelected = calendarroState.ispsmDateSelected(date);
 
-     var textColor = ovldaySelected ? Color(0xff0099ff) : Color(0xff444444);
+     var textColor = ovldaySelected ? Color(0xffffffff) : Color(0xffffffff);
       BoxDecoration boxDecoration;
     
     if (daySelected) {    
@@ -33,13 +33,19 @@ class CalendarroDayItem extends StatelessWidget {
       Color(0xffff825f),
       Color(0xffff4c51) ],
     stops: [0,1]),
- 
-                                     borderRadius: new BorderRadius.only(
+    
+    
+
+    
+                /*borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
                 bottomLeft: const Radius.circular(10.0),
-                                     ),);           
+                                     ),*/
+                                     
+                                     
+                                     );           
                                    
     } else if (isToday) {
       //textColor = Colors.white,
@@ -103,15 +109,27 @@ class CalendarroDayItem extends StatelessWidget {
 
 
      boxDecoration = BoxDecoration(gradient: LinearGradient(colors: [
-      Color(0xffffffff),
-      Color(0xffffffff) ],
+     Color(0xff8a4bf9),
+     Color(0xffd487fb) ],
     stops: [0,1]),
-                                     borderRadius: new BorderRadius.only(
+
+
+     border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle
+
+
+              /*borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(10.0),
                 topRight: const Radius.circular(10.0),
                 bottomRight: const Radius.circular(10.0),
                 bottomLeft: const Radius.circular(10.0),
-                                     ),);           
+                                     ),*/
+                                     
+                                     
+                                     );           
                                    
     } else if (isToday) {
       //textColor = Colors.white,
@@ -147,12 +165,20 @@ class CalendarroDayItem extends StatelessWidget {
       Color(0xff68e0cf),
       Color(0xff259cfa) ],
     stops: [0,1],),
-                                     borderRadius: new BorderRadius.only(
+
+     border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle
+
+              /*borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(0.0),
                 topRight: const Radius.circular(0.0),
                 bottomRight: const Radius.circular(0.0),
                 bottomLeft: const Radius.circular(00.0),
-                                     ),);           
+                                     ),*/
+                                     );           
                                    
     } else if (isToday) {
       //textColor = Colors.white,
