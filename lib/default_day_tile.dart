@@ -167,6 +167,7 @@ class CalendarroDayItem extends StatelessWidget {
     stops: [0,1],),
 
      border: Border.all(
+     
             color: Colors.white,
             width: 1.0,
           ),
@@ -180,12 +181,12 @@ class CalendarroDayItem extends StatelessWidget {
                                      ),*/
                                      );           
                                    
-    } if (isToday) {
+    }else if (isToday) {
       //textColor = Colors.white,
         boxDecoration = BoxDecoration(
           border: Border.all(
             color: Colors.black,
-            width: 1.0,
+            width: 2.0,
           ),
           shape: BoxShape.circle);
       
