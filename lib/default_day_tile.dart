@@ -21,7 +21,7 @@ class CalendarroDayItem extends StatelessWidget {
     bool ovldaySelected = calendarroState.isovlDateSelected(date);
     bool psmdaySelected = calendarroState.ispsmDateSelected(date);
 
-     var textColor = ovldaySelected ? Color(0xf0099FF) : Color(0xff444444);
+     var textColor = ovldaySelected ? Color(0xff0099ff) : Color(0xff444444);
       BoxDecoration boxDecoration;
     
     if (daySelected) {    
