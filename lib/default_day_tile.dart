@@ -180,7 +180,7 @@ class CalendarroDayItem extends StatelessWidget {
                                      ),*/
                                      );           
                                    
-    } else if (isToday) {
+    } if (isToday) {
       //textColor = Colors.white,
         boxDecoration = BoxDecoration(
           border: Border.all(
