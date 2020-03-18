@@ -32,6 +32,9 @@ class Calendarro extends StatefulWidget {
   List<DateTime> rglselected;
   List<DateTime> psmselected;
   List<DateTime> ovlselected;
+  List<DateTime> rglfrstselected;
+  List<DateTime> ovlfrstselected;
+  List<DateTime> psmfrstselected;
   int startDayOffset;
   CalendarroState state;
   
@@ -50,6 +53,9 @@ class Calendarro extends StatefulWidget {
     this.rglselected,
     this.psmselected,
     this.ovlselected,
+    this.rglfrstselected,
+    this.psmfrstselected,
+    this.ovlfrstselected,
     this.selectionMode = SelectionMode.SINGLE,
     this.onTap,
     this.onPageSelected,
@@ -87,6 +93,18 @@ class Calendarro extends StatefulWidget {
     }
 
       if (ovlselected == null) {
+      ovlselected = List();
+    }
+
+    if (rglfrstselected == null) {
+      rglselected = List();
+    }
+    
+     if (psmfrstselected == null) {
+      psmselected= List();
+    }
+
+      if (ovlfrstselected == null) {
       ovlselected = List();
     }
 
@@ -158,7 +176,9 @@ class CalendarroState extends State<Calendarro> {
   List<DateTime> rglselected;
   List<DateTime> psmselected;
   List<DateTime> ovlselected;
-  
+  List<DateTime> rglfrstselected;
+  List<DateTime> psmfrstselected;
+  List<DateTime> ovlfrstselected;
   int pagesCount;
   PageView pageView;
 
@@ -168,6 +188,9 @@ class CalendarroState extends State<Calendarro> {
     this.rglselected,
     this.psmselected,
     this.ovlselected,
+    this.rglfrstselected,
+    this.psmfrstselected,
+    this.ovlfrstselected,
   });
 
   @override
@@ -272,6 +295,92 @@ void setovlSelected(DateTime date) {
       }
     });
   }
+
+
+
+
+
+
+void setrglfrstSelected(DateTime date) {
+    setState(() {
+      if (widget.selectionMode == SelectionMode.SINGLE) {
+        selectedDate = date;
+      } else {
+        bool dateSelected = false;
+
+        for (var i = rglselected.length - 1; i >= 0; i--) {
+          if (DateUtils.isSameDay(rglfrstselected[i], date)) {
+            rglfrstselected.removeAt(i);
+            dateSelected = true;
+          }
+        }
+
+        if (!dateSelected) {
+          rglfrstselected.add(date);
+        }
+      }
+    });
+  }
+
+
+
+
+
+void setpsmfrstSelected(DateTime date) {
+    setState(() {
+      if (widget.selectionMode == SelectionMode.SINGLE) {
+        selectedDate = date;
+      } else {
+        bool dateSelected = false;
+
+        for (var i = rglfrstselected.length - 1; i >= 0; i--) {
+          if (DateUtils.isSameDay(psmfrstselected[i], date)) {
+            psmfrstselected.removeAt(i);
+            dateSelected = true;
+          }
+        }
+
+        if (!dateSelected) {
+          psmselected.add(date);
+        }
+      }
+    });
+  }
+
+
+
+
+
+void setovlfrstSelected(DateTime date) {
+    setState(() {
+      if (widget.selectionMode == SelectionMode.SINGLE) {
+        selectedDate = date;
+      } else {
+        bool dateSelected = false;
+
+        for (var i = ovlfrstselected.length - 1; i >= 0; i--) {
+          if (DateUtils.isSameDay(ovlfrstselected[i], date)) {
+            ovlfrstselected.removeAt(i);
+            dateSelected = true;
+          }
+        }
+
+        if (!dateSelected) {
+          ovlfrstselected.add(date);
+        }
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -396,6 +505,79 @@ bool isovlDateSelected(DateTime date) {
       return DateUtils.isSameDay(selectedDate, date);
     }
   }
+
+  bool isrglfrstDateSelected(DateTime date) {
+    if (widget.selectionMode == SelectionMode.MULTI) {
+      final matchedSelectedDate = rglfrstselected.firstWhere((currentDate) =>
+          DateUtils.isSameDay(currentDate, date),
+          orElse: () => null
+      );
+
+      return matchedSelectedDate != null;
+    } else {
+      return DateUtils.isSameDay(selectedDate, date);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+bool isovlfrstDateSelected(DateTime date) {
+    if (widget.selectionMode == SelectionMode.MULTI) {
+      final matchedSelectedDate = ovlfrstselected.firstWhere((currentDate) =>
+          DateUtils.isSameDay(currentDate, date),
+          orElse: () => null
+      );
+
+      return matchedSelectedDate != null;
+    } else {
+      return DateUtils.isSameDay(selectedDate, date);
+    }
+  }
+
+
+
+
+
+
+
+
+
+ bool ispsmfrstDateSelected(DateTime date) {
+    if (widget.selectionMode == SelectionMode.MULTI) {
+      final matchedSelectedDate = psmfrstselected.firstWhere((currentDate) =>
+          DateUtils.isSameDay(currentDate, date),
+          orElse: () => null
+      );
+
+      return matchedSelectedDate != null;
+    } else {
+      return DateUtils.isSameDay(selectedDate, date);
+    }
+  }
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
