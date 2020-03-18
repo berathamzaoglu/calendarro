@@ -97,15 +97,15 @@ class Calendarro extends StatefulWidget {
     }
 
     if (rglfrstselected == null) {
-      rglselected = List();
+      rglfrstselected = List();
     }
     
      if (psmfrstselected == null) {
-      psmselected= List();
+      psmfrstselected= List();
     }
 
       if (ovlfrstselected == null) {
-      ovlselected = List();
+      ovlfrstselected = List();
     }
 
 
