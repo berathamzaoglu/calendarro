@@ -17,9 +17,69 @@ class CalendarroDayItem extends StatelessWidget {
     calendarroState = Calendarro.of(context);
 
     bool daySelected = calendarroState.isDateSelected(date);
+    bool rgldaySelected = calendarroState.isRglDateSelected(date);
+    bool ovldaySelected = calendarroState.isOvlDateSelected(date);
+    bool pmsdaySelected = calendarroState.isPmsDateSelected(date);
+    bool ovlfrstdaySelected = calendarroState.isOvlfrstDateSelected(date);
+    bool pmsfrstdaySelected = calendarroState.isPmsfrstDateSelected(date);
+
 
     BoxDecoration boxDecoration;
     if (daySelected) {
+      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+    } else if (isToday) {
+      boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);
+    }
+
+    if (rgldaySelected) {
+      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+    } else if (isToday) {
+      boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);
+    }
+    if (pmsdaySelected) {
+      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+    } else if (isToday) {
+      boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);
+    }
+
+    if (ovldaySelected) {
+      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+    } else if (isToday) {
+      boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);
+    }
+
+    if (pmsfrstdaySelected) {
+      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+    } else if (isToday) {
+      boxDecoration = BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 1.0,
+          ),
+          shape: BoxShape.circle);
+    }
+
+    if (ovlfrstdaySelected) {
       boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
     } else if (isToday) {
       boxDecoration = BoxDecoration(
