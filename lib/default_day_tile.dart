@@ -26,7 +26,7 @@ class CalendarroDayItem extends StatelessWidget {
 
     BoxDecoration boxDecoration;
     if (daySelected) {
-      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+      boxDecoration = BoxDecoration(color: Colors.pink, shape: BoxShape.circle);
     } else if (isToday) {
       boxDecoration = BoxDecoration(
           border: Border.all(
@@ -37,7 +37,7 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (rgldaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+      boxDecoration = BoxDecoration(color: Colors.orange, shape: BoxShape.circle);
     } else if (isToday) {
       boxDecoration = BoxDecoration(
           border: Border.all(
@@ -58,7 +58,7 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (ovldaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+      boxDecoration = BoxDecoration(color: Colors.green, shape: BoxShape.circle);
     } else if (isToday) {
       boxDecoration = BoxDecoration(
           border: Border.all(
@@ -69,7 +69,7 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (pmsfrstdaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+      boxDecoration = BoxDecoration(color: Colors.lightBlue, shape: BoxShape.circle);
     } else if (isToday) {
       boxDecoration = BoxDecoration(
           border: Border.all(
@@ -80,7 +80,7 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (ovlfrstdaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+      boxDecoration = BoxDecoration(color: Colors.red, shape: BoxShape.circle);
     } else if (isToday) {
       boxDecoration = BoxDecoration(
           border: Border.all(
