@@ -246,18 +246,10 @@ class CalendarroDayItem extends StatelessWidget {
               child: Center(
                   child: Text(
                     "${date.day}",
-                    textAlign: TextAlign.center,
-                    
-    style: TextStyle(
-    fontFamily: 'Poppins',
-    color: textColor,
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    fontStyle: FontStyle.normal,),
+                    textAlign: TextAlign.center,                
                     
                     
-                    
-                  //  style: TextStyle(color: textColor),
+                    style: TextStyle(color: textColor),
                   ),),),
           onTap: handleTap,
           behavior: HitTestBehavior.translucent,
