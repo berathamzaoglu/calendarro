@@ -305,12 +305,12 @@ class CalendarroState extends State<Calendarro> {
         return DateUtils.isSameDay(selectedSingleDate, date);
         break;
       case SelectionMode.MULTI:
-        final matchedrglSelectedDate = rglselectedDates.firstWhere((currentDate) =>
+        final matchedSelectedDate = rglselectedDates.firstWhere((currentDate) =>
             DateUtils.isSameDay(currentDate, date),
             orElse: () => null
         );
 
-        return matchedrglSelectedDate != null;
+        return matchedSelectedDate != null;
         break;
       case SelectionMode.RANGE:
         switch (rglselectedDates.length) {
@@ -336,12 +336,12 @@ class CalendarroState extends State<Calendarro> {
         return DateUtils.isSameDay(selectedSingleDate, date);
         break;
       case SelectionMode.MULTI:
-        final matchedovlSelectedDate = ovlselectedDates.firstWhere((currentDate) =>
+        final matchedSelectedDate = ovlselectedDates.firstWhere((currentDate) =>
             DateUtils.isSameDay(currentDate, date),
             orElse: () => null
         );
 
-        return matchedovlSelectedDate != null;
+        return matchedSelectedDate != null;
         break;
       case SelectionMode.RANGE:
         switch (ovlselectedDates.length) {
@@ -366,12 +366,12 @@ class CalendarroState extends State<Calendarro> {
         return DateUtils.isSameDay(selectedSingleDate, date);
         break;
       case SelectionMode.MULTI:
-        final matchedpmsSelectedDate = pmsselectedDates.firstWhere((currentDate) =>
+        final matchedSelectedDate = pmsselectedDates.firstWhere((currentDate) =>
             DateUtils.isSameDay(currentDate, date),
             orElse: () => null
         );
 
-        return matchedpmsSelectedDate != null;
+        return matchedSelectedDate != null;
         break;
       case SelectionMode.RANGE:
         switch (pmsselectedDates.length) {
@@ -399,12 +399,12 @@ class CalendarroState extends State<Calendarro> {
         return DateUtils.isSameDay(selectedSingleDate, date);
         break;
       case SelectionMode.MULTI:
-        final matchedOvlfrstSelectedDate = ovlfrstselectedDates.firstWhere((currentDate) =>
+        final matchedSelectedDate = ovlfrstselectedDates.firstWhere((currentDate) =>
             DateUtils.isSameDay(currentDate, date),
             orElse: () => null
         );
 
-        return matchedOvlfrstSelectedDate != null;
+        return matchedSelectedDate != null;
         break;
       case SelectionMode.RANGE:
         switch (ovlfrstselectedDates.length) {
@@ -429,12 +429,12 @@ class CalendarroState extends State<Calendarro> {
         return DateUtils.isSameDay(selectedSingleDate, date);
         break;
       case SelectionMode.MULTI:
-        final matchedpmsfrstSelectedDate = pmsfrstselectedDates.firstWhere((currentDate) =>
+        final matchedSelectedDate = pmsfrstselectedDates.firstWhere((currentDate) =>
             DateUtils.isSameDay(currentDate, date),
             orElse: () => null
         );
 
-        return matchedpmsfrstSelectedDate != null;
+        return matchedSelectedDate != null;
         break;
       case SelectionMode.RANGE:
         switch (pmsfrstselectedDates.length) {
