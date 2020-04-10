@@ -25,6 +25,11 @@ class CalendarroDayItem extends StatelessWidget {
 
 
     BoxDecoration boxDecoration;
+    BoxDecoration boxDecoration1;
+    BoxDecoration boxDecoration2;
+    BoxDecoration boxDecoration3;
+    BoxDecoration boxDecoration4;
+    BoxDecoration boxDecoration5;
     if (daySelected) {
       boxDecoration = BoxDecoration(color: Colors.pink, shape: BoxShape.circle);
     } else if (isToday) {
@@ -37,9 +42,9 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (rgldaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.orange, shape: BoxShape.circle);
+      boxDecoration1 = BoxDecoration(color: Colors.orange, shape: BoxShape.circle);
     } else if (isToday) {
-      boxDecoration = BoxDecoration(
+      boxDecoration1 = BoxDecoration(
           border: Border.all(
             color: Colors.white,
             width: 1.0,
@@ -47,9 +52,9 @@ class CalendarroDayItem extends StatelessWidget {
           shape: BoxShape.circle);
     }
     if (pmsdaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
+      boxDecoration2 = BoxDecoration(color: Colors.blue, shape: BoxShape.circle);
     } else if (isToday) {
-      boxDecoration = BoxDecoration(
+      boxDecoration2 = BoxDecoration(
           border: Border.all(
             color: Colors.white,
             width: 1.0,
@@ -58,9 +63,9 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (ovldaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.green, shape: BoxShape.circle);
+      boxDecoration3 = BoxDecoration(color: Colors.green, shape: BoxShape.circle);
     } else if (isToday) {
-      boxDecoration = BoxDecoration(
+      boxDecoration3 = BoxDecoration(
           border: Border.all(
             color: Colors.white,
             width: 1.0,
@@ -69,9 +74,9 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (pmsfrstdaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.lightBlue, shape: BoxShape.circle);
+      boxDecoration4 = BoxDecoration(color: Colors.lightBlue, shape: BoxShape.circle);
     } else if (isToday) {
-      boxDecoration = BoxDecoration(
+      boxDecoration4 = BoxDecoration(
           border: Border.all(
             color: Colors.white,
             width: 1.0,
@@ -80,9 +85,9 @@ class CalendarroDayItem extends StatelessWidget {
     }
 
     if (ovlfrstdaySelected) {
-      boxDecoration = BoxDecoration(color: Colors.red, shape: BoxShape.circle);
+      boxDecoration5 = BoxDecoration(color: Colors.red, shape: BoxShape.circle);
     } else if (isToday) {
-      boxDecoration = BoxDecoration(
+      boxDecoration5 = BoxDecoration(
           border: Border.all(
             color: Colors.white,
             width: 1.0,
