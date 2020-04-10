@@ -208,11 +208,7 @@ class CalendarroState extends State<Calendarro> {
           break;
         case SelectionMode.MULTI:
           _setMultiSelectedDate(date);
-          _setMultirglSelectedDate(date);
-          _setMultiovlSelectedDate(date);
-          _setMultipmsSelectedDate(date);
-          _setMultiovlfrstSelectedDate(date);
-          _setMultipmsfrstSelectedDate(date);
+ 
           break;
         case SelectionMode.RANGE:
           _setRangeSelectedDate(date);
@@ -644,117 +640,7 @@ class CalendarroState extends State<Calendarro> {
     }
   }
 
-   void _setRangerglSelectedDate(DateTime date) {
-    switch (rglselectedDates.length) {
-      case 0:
-        rglselectedDates.add(date);
-        break;
-      case 1:
-        var firstDate = rglselectedDates[0];
-        if (firstDate.isBefore(date)) {
-         rglselectedDates.add(date);
-        } else {
-          rglselectedDates.clear();
-          rglselectedDates.add(date);
-          rglselectedDates.add(firstDate);
-        }
-        break;
-      default:
-        rglselectedDates.clear();
-        rglselectedDates.add(date);
-        break;
-    }
-  }
-
-
-   void _setRangeovlSelectedDate(DateTime date) {
-    switch (ovlselectedDates.length) {
-      case 0:
-        ovlselectedDates.add(date);
-        break;
-      case 1:
-        var firstDate = ovlselectedDates[0];
-        if (firstDate.isBefore(date)) {
-          ovlselectedDates.add(date);
-        } else {
-          ovlselectedDates.clear();
-          ovlselectedDates.add(date);
-          ovlselectedDates.add(firstDate);
-        }
-        break;
-      default:
-        ovlselectedDates.clear();
-        ovlselectedDates.add(date);
-        break;
-    }
-  }
-
-
-   void _setRangepmsSelectedDate(DateTime date) {
-    switch (pmsselectedDates.length) {
-      case 0:
-        pmsselectedDates.add(date);
-        break;
-      case 1:
-        var firstDate = pmsselectedDates[0];
-        if (firstDate.isBefore(date)) {
-          pmsselectedDates.add(date);
-        } else {
-         pmsselectedDates.clear();
-         pmsselectedDates.add(date);
-          pmsselectedDates.add(firstDate);
-        }
-        break;
-      default:
-        pmsselectedDates.clear();
-        pmsselectedDates.add(date);
-        break;
-    }
-  }
-
-   void _setRangeovlfrstSelectedDate(DateTime date) {
-    switch (ovlfrstselectedDates.length) {
-      case 0:
-        ovlfrstselectedDates.add(date);
-        break;
-      case 1:
-        var firstDate = ovlfrstselectedDates[0];
-        if (firstDate.isBefore(date)) {
-          ovlfrstselectedDates.add(date);
-        } else {
-          ovlfrstselectedDates.clear();
-          ovlfrstselectedDates.add(date);
-          ovlfrstselectedDates.add(firstDate);
-        }
-        break;
-      default:
-        ovlfrstselectedDates.clear();
-        ovlfrstselectedDates.add(date);
-        break;
-    }
-  }
-
-   void _setRangepmsfrstSelectedDate(DateTime date) {
-    switch (pmsfrstselectedDates.length) {
-      case 0:
-        pmsfrstselectedDates.add(date);
-        break;
-      case 1:
-        var firstDate = pmsfrstselectedDates[0];
-        if (firstDate.isBefore(date)) {
-          pmsfrstselectedDates.add(date);
-        } else {
-          pmsfrstselectedDates.clear();
-          pmsfrstselectedDates.add(date);
-          pmsfrstselectedDates.add(firstDate);
-        }
-        break;
-      default:
-        pmsfrstselectedDates.clear();
-        pmsfrstselectedDates.add(date);
-        break;
-    }
-  }
+   
 
   void _setMultiSelectedDate(DateTime date) {
     final alreadyExistingDate = selectedDates.firstWhere((currentDate) =>
@@ -770,73 +656,7 @@ class CalendarroState extends State<Calendarro> {
   }
   
 
-    void _setMultirglSelectedDate(DateTime date) {
-    final alreadyExistingDate = rglselectedDates.firstWhere((currentDate) =>
-        DateUtils.isSameDay(currentDate, date),
-        orElse: () => null
-    );
 
-    if (alreadyExistingDate != null) {
-      rglselectedDates.remove(alreadyExistingDate);
-    } else {
-      rglselectedDates.add(date);
-    }
-  }
-
-
-    void _setMultiovlSelectedDate(DateTime date) {
-    final alreadyExistingDate = ovlselectedDates.firstWhere((currentDate) =>
-        DateUtils.isSameDay(currentDate, date),
-        orElse: () => null
-    );
-
-    if (alreadyExistingDate != null) {
-      ovlselectedDates.remove(alreadyExistingDate);
-    } else {
-      ovlselectedDates.add(date);
-    }
-  }
-
-
-    void _setMultipmsSelectedDate(DateTime date) {
-    final alreadyExistingDate = pmsselectedDates.firstWhere((currentDate) =>
-        DateUtils.isSameDay(currentDate, date),
-        orElse: () => null
-    );
-
-    if (alreadyExistingDate != null) {
-      pmsselectedDates.remove(alreadyExistingDate);
-    } else {
-      pmsselectedDates.add(date);
-    }
-  }
-
-
-    void _setMultiovlfrstSelectedDate(DateTime date) {
-    final alreadyExistingDate = ovlfrstselectedDates.firstWhere((currentDate) =>
-        DateUtils.isSameDay(currentDate, date),
-        orElse: () => null
-    );
-
-    if (alreadyExistingDate != null) {
-      ovlfrstselectedDates.remove(alreadyExistingDate);
-    } else {
-      ovlfrstselectedDates.add(date);
-    }
-  }
-
-    void _setMultipmsfrstSelectedDate(DateTime date) {
-    final alreadyExistingDate = pmsfrstselectedDates.firstWhere((currentDate) =>
-        DateUtils.isSameDay(currentDate, date),
-        orElse: () => null
-    );
-
-    if (alreadyExistingDate != null) {
-      pmsfrstselectedDates.remove(alreadyExistingDate);
-    } else {
-      pmsfrstselectedDates.add(date);
-    }
-  }
 
 
 
