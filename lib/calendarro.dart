@@ -12,7 +12,7 @@ abstract class DayTileBuilder {
 }
 
 enum DisplayMode { MONTHS, WEEKS }
-enum SelectionMode { SINGLE, MULTI }
+enum SelectionMode { SINGLE, MULTI, RANGE }
 
 typedef void DateTimeCallback(DateTime datetime);
 typedef void CurrentPageCallback(DateTime pageStartDate, DateTime pageEndDate);
@@ -27,35 +27,33 @@ class Calendarro extends StatefulWidget {
   DateTimeCallback onTap;
   CurrentPageCallback onPageSelected;
 
-  DateTime selectedDate;
+  DateTime selectedSingleDate;
   List<DateTime> selectedDates;
-  List<DateTime> rglselected;
-  List<DateTime> psmselected;
-  List<DateTime> ovlselected;
-  List<DateTime> rglfrstselected;
-  List<DateTime> ovlfrstselected;
-  List<DateTime> psmfrstselected;
+  List<DateTime> rglselectedDates;
+  List<DateTime> pmsselectedDates;
+  List<DateTime> ovlselectedDates;
+  List<DateTime> pmsfrstselectedDates;
+  List<DateTime> ovlfrstselectedDates;
+  
   int startDayOffset;
   CalendarroState state;
-  
+
   double dayTileHeight = 40.0;
   double dayLabelHeight = 40.0;
 
   Calendarro({
     Key key,
     this.startDate,
-
     this.endDate,
     this.displayMode = DisplayMode.WEEKS,
     this.dayTileBuilder,
-    this.selectedDate,
+    this.selectedSingleDate,
     this.selectedDates,
-    this.rglselected,
-    this.psmselected,
-    this.ovlselected,
-    this.rglfrstselected,
-    this.psmfrstselected,
-    this.ovlfrstselected,
+    this.rglselectedDates,
+    this.pmsselectedDates,
+    this.ovlselectedDates,
+    this.pmsfrstselectedDates,
+    this.ovlfrstselectedDates,
     this.selectionMode = SelectionMode.SINGLE,
     this.onTap,
     this.onPageSelected,
@@ -84,37 +82,27 @@ class Calendarro extends StatefulWidget {
       weekdayLabelsRow = CalendarroWeekdayLabelsView();
     }
 
-    if (rglselected == null) {
-      rglselected = List();
+    if (selectedDates == null) {
+      selectedDates = List();
     }
-    
-     if (psmselected == null) {
-      psmselected= List();
+    if (rglselectedDates == null) {
+      rglselectedDates = List();
     }
-
-      if (ovlselected == null) {
-      ovlselected = List();
+    if (pmsselectedDates == null) {
+      pmsselectedDates = List();
     }
-
-    if (rglfrstselected == null) {
-      rglfrstselected = List();
+    if (ovlselectedDates == null) {
+      ovlselectedDates = List();
     }
-    
-     if (psmfrstselected == null) {
-      psmfrstselected= List();
+    if (pmsfrstselectedDates == null) {
+      pmsfrstselectedDates = List();
     }
-
-      if (ovlfrstselected == null) {
-      ovlfrstselected = List();
+    if (ovlfrstselectedDates == null) {
+      ovlfrstselectedDates = List();
     }
 
-
-
-
-
-
-
-
+   
+  
   }
 
   static CalendarroState of(BuildContext context) =>
@@ -123,15 +111,15 @@ class Calendarro extends StatefulWidget {
   @override
   CalendarroState createState() {
     state = CalendarroState(
-        selectedDate: selectedDate,
+        selectedSingleDate: selectedSingleDate,
         selectedDates: selectedDates,
-        rglselected: rglselected,
-        psmselected: psmselected,
-        ovlselected: ovlselected,
-        rglfrstselected: rglfrstselected,
-        psmfrstselected: psmfrstselected,
-        ovlfrstselected: ovlfrstselected,
-
+        rglselectedDates: rglselectedDates,
+        pmsselectedDates: pmsselectedDates,
+        ovlselectedDates: ovlselectedDates,
+        pmsfrstselectedDates: pmsfrstselectedDates,
+        ovlfrstselectedDates: ovlfrstselectedDates,
+      
+        
         );
     return state;
   }
@@ -140,8 +128,48 @@ class Calendarro extends StatefulWidget {
     state.setSelectedDate(date);
   }
 
+   void setSelectedReglDate(DateTime date) {
+    state.setSelectedReglDate(date);
+  }
+   void setSelectedOvlDate(DateTime date) {
+    state.setSelectedOvlDate(date);
+  }
+   void setSelectedPmsDate(DateTime date) {
+    state.setSelectedPmsDate(date);
+  }
+   void setSelectedPmsfrstDate(DateTime date) {
+    state.setSelectedPmsfrstDate(date);
+  }
+   void setSelectedOvlfrstDate(DateTime date) {
+    state.setSelectedOvlfrstDate(date);
+  }
+
   void toggleDate(DateTime date) {
     state.toggleDateSelection(date);
+  }
+
+  void togglerglDate(DateTime date) {
+    state.toggleDaterglSelection(date);
+  }
+
+
+  void togglepmsDate(DateTime date) {
+    state.toggleDatepmsSelection(date);
+  }
+
+
+  void toggleovlDate(DateTime date) {
+    state.toggleDateovlSelection(date);
+  }
+
+
+  void toggleovlfrstDate(DateTime date) {
+    state.toggleDateovlfrstSelection(date);
+  }
+
+
+  void togglepmsfrstDate(DateTime date) {
+    state.toggleDatepmsfrstSelection(date);
   }
 
   void setCurrentDate(DateTime date) {
@@ -174,220 +202,148 @@ class Calendarro extends StatefulWidget {
 }
 
 class CalendarroState extends State<Calendarro> {
-  DateTime selectedDate;
+  DateTime selectedSingleDate;
   List<DateTime> selectedDates;
-  List<DateTime> rglselected;
-  List<DateTime> psmselected;
-  List<DateTime> ovlselected;
-  List<DateTime> rglfrstselected;
-  List<DateTime> psmfrstselected;
-  List<DateTime> ovlfrstselected;
+  List<DateTime> rglselectedDates;
+  List<DateTime> pmsselectedDates;
+  List<DateTime> ovlselectedDates;
+  List<DateTime> pmsfrstselectedDates;
+  List<DateTime> ovlfrstselectedDates;
+ 
   int pagesCount;
   PageView pageView;
 
   CalendarroState({
-    this.selectedDate,
+    this.selectedSingleDate,
     this.selectedDates,
-    this.rglselected,
-    this.psmselected,
-    this.ovlselected,
-    this.rglfrstselected,
-    this.psmfrstselected,
-    this.ovlfrstselected,
+    this.rglselectedDates,
+    this.pmsselectedDates,
+    this.ovlselectedDates,
+    this.pmsfrstselectedDates,
+    this.ovlfrstselectedDates,
+   
+    
   });
 
   @override
   void initState() {
     super.initState();
 
-    if (selectedDate == null) {
-      selectedDate = widget.startDate;
+    if (selectedSingleDate == null) {
+      selectedSingleDate = widget.startDate;
     }
   }
 
   void setSelectedDate(DateTime date) {
     setState(() {
-      if (widget.selectionMode == SelectionMode.SINGLE) {
-        selectedDate = date;
-      } else {
-        bool dateSelected = false;
+      switch (widget.selectionMode) {
+        case SelectionMode.SINGLE:
+          selectedSingleDate = date;
+          break;
+        case SelectionMode.MULTI:
+          _setMultiSelectedDate(date);
+ 
+          break;
+        case SelectionMode.RANGE:
+          _setRangeSelectedDate(date);
 
-        for (var i = selectedDates.length - 1; i >= 0; i--) {
-          if (DateUtils.isSameDay(selectedDates[i], date)) {
-            selectedDates.removeAt(i);
-            dateSelected = true;
-          }
-        }
-
-        if (!dateSelected) {
-          selectedDates.add(date);
-        }
+ 
+          break;
       }
     });
   }
 
-
-
-void setrglSelected(DateTime date) {
+  void setSelectedReglDate(DateTime date) {
     setState(() {
-      if (widget.selectionMode == SelectionMode.SINGLE) {
-        selectedDate = date;
-      } else {
-        bool dateSelected = false;
+      switch (widget.selectionMode) {
+        case SelectionMode.SINGLE:
+          selectedSingleDate = date;
+          break;
+        case SelectionMode.MULTI:
+          _setMultiSelectedDate(date);
+ 
+          break;
+        case SelectionMode.RANGE:
+          _setRangeSelectedDate(date);
 
-        for (var i = rglselected.length - 1; i >= 0; i--) {
-          if (DateUtils.isSameDay(rglselected[i], date)) {
-            rglselected.removeAt(i);
-            dateSelected = true;
-          }
-        }
-
-        if (!dateSelected) {
-          rglselected.add(date);
-        }
+ 
+          break;
       }
     });
   }
 
-
-
-
-
-void setpsmSelected(DateTime date) {
+    void setSelectedPmsDate(DateTime date) {
     setState(() {
-      if (widget.selectionMode == SelectionMode.SINGLE) {
-        selectedDate = date;
-      } else {
-        bool dateSelected = false;
+      switch (widget.selectionMode) {
+        case SelectionMode.SINGLE:
+          selectedSingleDate = date;
+          break;
+        case SelectionMode.MULTI:
+          _setMultiSelectedDate(date);
+ 
+          break;
+        case SelectionMode.RANGE:
+          _setRangeSelectedDate(date);
 
-        for (var i = rglselected.length - 1; i >= 0; i--) {
-          if (DateUtils.isSameDay(psmselected[i], date)) {
-            psmselected.removeAt(i);
-            dateSelected = true;
-          }
-        }
-
-        if (!dateSelected) {
-          psmselected.add(date);
-        }
+          break;
       }
     });
   }
 
-
-
-
-
-void setovlSelected(DateTime date) {
+    void setSelectedOvlDate(DateTime date) {
     setState(() {
-      if (widget.selectionMode == SelectionMode.SINGLE) {
-        selectedDate = date;
-      } else {
-        bool dateSelected = false;
-
-        for (var i = ovlselected.length - 1; i >= 0; i--) {
-          if (DateUtils.isSameDay(ovlselected[i], date)) {
-            ovlselected.removeAt(i);
-            dateSelected = true;
-          }
-        }
-
-        if (!dateSelected) {
-          ovlselected.add(date);
-        }
+      switch (widget.selectionMode) {
+        case SelectionMode.SINGLE:
+          selectedSingleDate = date;
+          break;
+        case SelectionMode.MULTI:
+          _setMultiSelectedDate(date);
+ 
+          break;
+        case SelectionMode.RANGE:
+          _setRangeSelectedDate(date);
+  
+ 
+          break;
       }
     });
   }
-
-
-
-
-
-
-void setrglfrstSelected(DateTime date) {
+   void setSelectedPmsfrstDate(DateTime date) {
     setState(() {
-      if (widget.selectionMode == SelectionMode.SINGLE) {
-        selectedDate = date;
-      } else {
-        bool dateSelected = false;
-
-        for (var i = rglselected.length - 1; i >= 0; i--) {
-          if (DateUtils.isSameDay(rglfrstselected[i], date)) {
-            rglfrstselected.removeAt(i);
-            dateSelected = true;
-          }
-        }
-
-        if (!dateSelected) {
-          rglfrstselected.add(date);
-        }
+      switch (widget.selectionMode) {
+        case SelectionMode.SINGLE:
+          selectedSingleDate = date;
+          break;
+        case SelectionMode.MULTI:
+          _setMultiSelectedDate(date);
+ 
+          break;
+        case SelectionMode.RANGE:
+          //_setRangeSelectedDate(date);
+           _setMultiSelectedDate(date);
+           
+          break;
       }
     });
   }
 
-
-
-
-
-void setpsmfrstSelected(DateTime date) {
+    void setSelectedOvlfrstDate(DateTime date) {
     setState(() {
-      if (widget.selectionMode == SelectionMode.SINGLE) {
-        selectedDate = date;
-      } else {
-        bool dateSelected = false;
-
-        for (var i = rglfrstselected.length - 1; i >= 0; i--) {
-          if (DateUtils.isSameDay(psmfrstselected[i], date)) {
-            psmfrstselected.removeAt(i);
-            dateSelected = true;
-          }
-        }
-
-        if (!dateSelected) {
-          psmselected.add(date);
-        }
+      switch (widget.selectionMode) {
+        case SelectionMode.SINGLE:
+          selectedSingleDate = date;
+          break;
+        case SelectionMode.MULTI:
+          _setMultiSelectedDate(date);
+ 
+          break;
+        case SelectionMode.RANGE:
+        //  _setRangeSelectedDate(date);
+            _setMultiSelectedDate(date);
+          break;
       }
     });
   }
-
-
-
-
-
-void setovlfrstSelected(DateTime date) {
-    setState(() {
-      if (widget.selectionMode == SelectionMode.SINGLE) {
-        selectedDate = date;
-      } else {
-        bool dateSelected = false;
-
-        for (var i = ovlfrstselected.length - 1; i >= 0; i--) {
-          if (DateUtils.isSameDay(ovlfrstselected[i], date)) {
-            ovlfrstselected.removeAt(i);
-            dateSelected = true;
-          }
-        }
-
-        if (!dateSelected) {
-          ovlfrstselected.add(date);
-        }
-      }
-    });
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   void setCurrentDate(DateTime date) {
     setState(() {
@@ -412,7 +368,7 @@ void setovlfrstSelected(DateTime date) {
       itemCount: pagesCount,
       controller: PageController(
           initialPage:
-          selectedDate != null ? widget.getPageForDate(selectedDate) : 0),
+          selectedSingleDate != null ? widget.getPageForDate(selectedSingleDate) : 0),
       onPageChanged: (page) {
         if (widget.onPageSelected != null) {
           DateRange pageDateRange = _calculatePageDateRange(page);
@@ -433,156 +389,205 @@ void setovlfrstSelected(DateTime date) {
     }
 
     return Container(
-    height: widgetHeight,
-    child: pageView);
-
+        height: widgetHeight,
+        child: pageView);
   }
-//jgvhbkjknlmşsxdrctfyvgubhınjomklşöööööööezrxdtcfygvubhkmlşlöiszrxdtcfygvubhkmlşlözrxetcrytgvubhınjklmvb
+
   bool isDateSelected(DateTime date) {
-    if (widget.selectionMode == SelectionMode.MULTI) {
-      final matchedSelectedDate = selectedDates.firstWhere((currentDate) =>
-          DateUtils.isSameDay(currentDate, date),
-          orElse: () => null
-      );
+    switch (widget.selectionMode) {
+      case SelectionMode.SINGLE:
+        return DateUtils.isSameDay(selectedSingleDate, date);
+        break;
+      case SelectionMode.MULTI:
+        final matchedSelectedDate = selectedDates.firstWhere((currentDate) =>
+            DateUtils.isSameDay(currentDate, date),
+            orElse: () => null
+        );
 
-      return matchedSelectedDate != null;
-    } else {
-      return DateUtils.isSameDay(selectedDate, date);
+        return matchedSelectedDate != null;
+        break;
+      case SelectionMode.RANGE:
+        switch (selectedDates.length) {
+          case 0:
+            return false;
+          case 1:
+            return DateUtils.isSameDay(selectedDates[0], date);
+          default:
+            var dateBetweenDatesRange = (date.isAfter(selectedDates[0])
+                && date.isBefore(selectedDates[1]));
+            return DateUtils.isSameDay(date, selectedDates[0])
+              || DateUtils.isSameDay(date, selectedDates[1])
+              || dateBetweenDatesRange;
+        }
+        break;
+    }
+  }
+
+  
+
+    bool isRglDateSelected(DateTime date) {
+    switch (widget.selectionMode) {
+      case SelectionMode.SINGLE:
+        return DateUtils.isSameDay(selectedSingleDate, date);
+        break;
+      case SelectionMode.MULTI:
+        final matchedSelectedDate = rglselectedDates.firstWhere((currentDate) =>
+            DateUtils.isSameDay(currentDate, date),
+            orElse: () => null
+        );
+
+        return matchedSelectedDate != null;
+        break;
+      case SelectionMode.RANGE:
+        switch (rglselectedDates.length) {
+          case 0:
+            return false;
+          case 1:
+            return DateUtils.isSameDay(rglselectedDates[0], date);
+          default:
+            var dateBetweenDatesRange = (date.isAfter(rglselectedDates[0])
+                && date.isBefore(rglselectedDates[1]));
+            return DateUtils.isSameDay(date, rglselectedDates[0])
+              || DateUtils.isSameDay(date, rglselectedDates[1])
+              || dateBetweenDatesRange;
+        }
+        break;
     }
   }
 
 
+    bool isPmsDateSelected(DateTime date) {
+    switch (widget.selectionMode) {
+      case SelectionMode.SINGLE:
+        return DateUtils.isSameDay(selectedSingleDate, date);
+        break;
+      case SelectionMode.MULTI:
+        final matchedSelectedDate = pmsselectedDates.firstWhere((currentDate) =>
+            DateUtils.isSameDay(currentDate, date),
+            orElse: () => null
+        );
 
-bool isrglDateSelected(DateTime date) {
-    if (widget.selectionMode == SelectionMode.MULTI) {
-      final matchedSelectedDate = rglselected.firstWhere((currentDate) =>
-          DateUtils.isSameDay(currentDate, date),
-          orElse: () => null
-      );
-
-      return matchedSelectedDate != null;
-    } else {
-      return DateUtils.isSameDay(selectedDate, date);
+        return matchedSelectedDate != null;
+        break;
+      case SelectionMode.RANGE:
+        switch (pmsselectedDates.length) {
+          case 0:
+            return false;
+          case 1:
+            return DateUtils.isSameDay(pmsselectedDates[0], date);
+          default:
+            var dateBetweenDatesRange = (date.isAfter(pmsselectedDates[0])
+                && date.isBefore(pmsselectedDates[1]));
+            return DateUtils.isSameDay(date, pmsselectedDates[0])
+              || DateUtils.isSameDay(date, pmsselectedDates[1])
+              || dateBetweenDatesRange;
+        }
+        break;
     }
   }
 
 
+    bool isOvlDateSelected(DateTime date) {
+    switch (widget.selectionMode) {
+      case SelectionMode.SINGLE:
+        return DateUtils.isSameDay(selectedSingleDate, date);
+        break;
+      case SelectionMode.MULTI:
+        final matchedSelectedDate = ovlselectedDates.firstWhere((currentDate) =>
+            DateUtils.isSameDay(currentDate, date),
+            orElse: () => null
+        );
 
-
-
-
-
-
-
-
-bool isovlDateSelected(DateTime date) {
-    if (widget.selectionMode == SelectionMode.MULTI) {
-      final matchedSelectedDate = ovlselected.firstWhere((currentDate) =>
-          DateUtils.isSameDay(currentDate, date),
-          orElse: () => null
-      );
-
-      return matchedSelectedDate != null;
-    } else {
-      return DateUtils.isSameDay(selectedDate, date);
+        return matchedSelectedDate != null;
+        break;
+      case SelectionMode.RANGE:
+        switch (ovlselectedDates.length) {
+          case 0:
+            return false;
+          case 1:
+            return DateUtils.isSameDay(ovlselectedDates[0], date);
+          default:
+            var dateBetweenDatesRange = (date.isAfter(ovlselectedDates[0])
+                && date.isBefore(ovlselectedDates[1]));
+            return DateUtils.isSameDay(date, ovlselectedDates[0])
+              || DateUtils.isSameDay(date, ovlselectedDates[1])
+              || dateBetweenDatesRange;
+        }
+        break;
     }
   }
 
 
+    bool isPmsfrstDateSelected(DateTime date) {
+    switch (widget.selectionMode) {
+      case SelectionMode.SINGLE:
+        return DateUtils.isSameDay(selectedSingleDate, date);
+        break;
+      case SelectionMode.MULTI:
+        final matchedSelectedDate = pmsfrstselectedDates.firstWhere((currentDate) =>
+            DateUtils.isSameDay(currentDate, date),
+            orElse: () => null
+        );
 
-
-
-
-
-
-
- bool ispsmDateSelected(DateTime date) {
-    if (widget.selectionMode == SelectionMode.MULTI) {
-      final matchedSelectedDate = psmselected.firstWhere((currentDate) =>
-          DateUtils.isSameDay(currentDate, date),
-          orElse: () => null
-      );
-
-      return matchedSelectedDate != null;
-    } else {
-      return DateUtils.isSameDay(selectedDate, date);
-    }
-  }
-
-  bool isrglfrstDateSelected(DateTime date) {
-    if (widget.selectionMode == SelectionMode.MULTI) {
-      final matchedSelectedDate = rglfrstselected.firstWhere((currentDate) =>
-          DateUtils.isSameDay(currentDate, date),
-          orElse: () => null
-      );
-
-      return matchedSelectedDate != null;
-    } else {
-      return DateUtils.isSameDay(selectedDate, date);
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-bool isovlfrstDateSelected(DateTime date) {
-    if (widget.selectionMode == SelectionMode.MULTI) {
-      final matchedSelectedDate = ovlfrstselected.firstWhere((currentDate) =>
-          DateUtils.isSameDay(currentDate, date),
-          orElse: () => null
-      );
-
-      return matchedSelectedDate != null;
-    } else {
-      return DateUtils.isSameDay(selectedDate, date);
+        return matchedSelectedDate != null;
+        break;
+      case SelectionMode.RANGE:
+        switch (pmsfrstselectedDates.length) {
+          case 0:
+            return false;
+          case 1:
+            return DateUtils.isSameDay(pmsfrstselectedDates[0], date);
+          default:
+            var dateBetweenDatesRange = (date.isAfter(pmsfrstselectedDates[0])
+                && date.isBefore(pmsfrstselectedDates[1]));
+            return DateUtils.isSameDay(date, pmsfrstselectedDates[0])
+              || DateUtils.isSameDay(date, pmsfrstselectedDates[1])
+              || dateBetweenDatesRange;
+        }
+        break;
     }
   }
 
 
+    bool isOvlfrstDateSelected(DateTime date) {
+    switch (widget.selectionMode) {
+      case SelectionMode.SINGLE:
+        return DateUtils.isSameDay(selectedSingleDate, date);
+        break;
+      case SelectionMode.MULTI:
+        final matchedSelectedDate = ovlfrstselectedDates.firstWhere((currentDate) =>
+            DateUtils.isSameDay(currentDate, date),
+            orElse: () => null
+        );
 
-
-
-
-
-
-
- bool ispsmfrstDateSelected(DateTime date) {
-    if (widget.selectionMode == SelectionMode.MULTI) {
-      final matchedSelectedDate = psmfrstselected.firstWhere((currentDate) =>
-          DateUtils.isSameDay(currentDate, date),
-          orElse: () => null
-      );
-
-      return matchedSelectedDate != null;
-    } else {
-      return DateUtils.isSameDay(selectedDate, date);
+        return matchedSelectedDate != null;
+        break;
+      case SelectionMode.RANGE:
+        switch (ovlfrstselectedDates.length) {
+          case 0:
+            return false;
+          case 1:
+            return DateUtils.isSameDay(ovlfrstselectedDates[0], date);
+          default:
+            var dateBetweenDatesRange = (date.isAfter(ovlfrstselectedDates[0])
+                && date.isBefore(ovlfrstselectedDates[1]));
+            return DateUtils.isSameDay(date, ovlfrstselectedDates[0])
+              || DateUtils.isSameDay(date, ovlfrstselectedDates[1])
+              || dateBetweenDatesRange;
+        }
+        break;
     }
   }
 
-
+    
 
   
 
 
 
+   
 
-
-
-
-
-
-
-
-
-
-
-
+   
 
   void toggleDateSelection(DateTime date) {
     setState(() {
@@ -597,16 +602,75 @@ bool isovlfrstDateSelected(DateTime date) {
     });
   }
 
+    void toggleDaterglSelection(DateTime date) {
+    setState(() {
+      for (var i = selectedDates.length - 1; i >= 0; i--) {
+        if (DateUtils.isSameDay(selectedDates[i], date)) {
+          selectedDates.removeAt(i);
+          return;
+        }
+      }
 
+      selectedDates.add(date);
+    });
+  }
 
+    void toggleDateovlSelection(DateTime date) {
+    setState(() {
+      for (var i = selectedDates.length - 1; i >= 0; i--) {
+        if (DateUtils.isSameDay(selectedDates[i], date)) {
+          selectedDates.removeAt(i);
+          return;
+        }
+      }
 
+      selectedDates.add(date);
+    });
+  }
 
+    void toggleDatepmsSelection(DateTime date) {
+    setState(() {
+      for (var i = selectedDates.length - 1; i >= 0; i--) {
+        if (DateUtils.isSameDay(selectedDates[i], date)) {
+          selectedDates.removeAt(i);
+          return;
+        }
+      }
 
+      selectedDates.add(date);
+    });
+  }
 
+    void toggleDatepmsfrstSelection(DateTime date) {
+    setState(() {
+      for (var i = selectedDates.length - 1; i >= 0; i--) {
+        if (DateUtils.isSameDay(selectedDates[i], date)) {
+          selectedDates.removeAt(i);
+          return;
+        }
+      }
+
+      selectedDates.add(date);
+    });
+  }
+
+    void toggleDateovlfrstSelection(DateTime date) {
+    setState(() {
+      for (var i = selectedDates.length - 1; i >= 0; i--) {
+        if (DateUtils.isSameDay(selectedDates[i], date)) {
+          selectedDates.removeAt(i);
+          return;
+        }
+      }
+
+      selectedDates.add(date);
+    });
+  }
+
+    
   void update() {
     setState(() {});
   }
-
 
   Widget _buildCalendarPage(int position) {
     if (widget.displayMode == DisplayMode.WEEKS) {
@@ -642,7 +706,6 @@ bool isovlfrstDateSelected(DateTime date) {
       return _calculatePageDateRangeInMonthsMode(pagePosition);
     }
   }
-
 
   DateRange _calculatePageDateRangeInMonthsMode(int pagePosition) {
     DateTime pageStartDate;
@@ -691,4 +754,227 @@ bool isovlfrstDateSelected(DateTime date) {
 
     return DateRange(pageStartDate, pageEndDate);
   }
+
+  void _setRangeSelectedDate(DateTime date) {
+    switch (selectedDates.length) {
+      case 0:
+        selectedDates.add(date);
+        break;
+      case 1:
+        var firstDate = selectedDates[0];
+        if (firstDate.isBefore(date)) {
+          selectedDates.add(date);
+        } else {
+          selectedDates.clear();
+          selectedDates.add(date);
+          selectedDates.add(firstDate);
+        }
+        break;
+      default:
+        selectedDates.clear();
+        selectedDates.add(date);
+        break;
+    }
+  }
+
+
+    void _setRangeReglSelectedDate(DateTime date) {
+    switch (rglselectedDates.length) {
+      case 0:
+        rglselectedDates.add(date);
+        break;
+      case 1:
+        var firstDate = rglselectedDates[0];
+        if (firstDate.isBefore(date)) {
+          rglselectedDates.add(date);
+        } else {
+          rglselectedDates.clear();
+          rglselectedDates.add(date);
+          rglselectedDates.add(firstDate);
+        }
+        break;
+      default:
+        rglselectedDates.clear();
+        rglselectedDates.add(date);
+        break;
+    }
+  }
+
+    void _setRangeOvlSelectedDate(DateTime date) {
+    switch (ovlselectedDates.length) {
+      case 0:
+        ovlselectedDates.add(date);
+        break;
+      case 1:
+        var firstDate = ovlselectedDates[0];
+        if (firstDate.isBefore(date)) {
+          ovlselectedDates.add(date);
+        } else {
+          ovlselectedDates.clear();
+          ovlselectedDates.add(date);
+          ovlselectedDates.add(firstDate);
+        }
+        break;
+      default:
+        ovlselectedDates.clear();
+        ovlselectedDates.add(date);
+        break;
+    }
+  }
+
+
+    void _setRangeSelectedPmsDate(DateTime date) {
+    switch (pmsselectedDates.length) {
+      case 0:
+        pmsselectedDates.add(date);
+        break;
+      case 1:
+        var firstDate = pmsselectedDates[0];
+        if (firstDate.isBefore(date)) {
+          pmsselectedDates.add(date);
+        } else {
+          pmsselectedDates.clear();
+          pmsselectedDates.add(date);
+          pmsselectedDates.add(firstDate);
+        }
+        break;
+      default:
+        pmsselectedDates.clear();
+        pmsselectedDates.add(date);
+        break;
+    }
+  }
+
+      void _setRangeSelectedPmsfrstDate(DateTime date) {
+    switch (pmsfrstselectedDates.length) {
+      case 0:
+        pmsfrstselectedDates.add(date);
+        break;
+      case 1:
+        var firstDate = pmsfrstselectedDates[0];
+        if (firstDate.isBefore(date)) {
+          pmsfrstselectedDates.add(date);
+        } else {
+          pmsfrstselectedDates.clear();
+          pmsfrstselectedDates.add(date);
+          pmsfrstselectedDates.add(firstDate);
+        }
+        break;
+      default:
+        pmsfrstselectedDates.clear();
+        pmsfrstselectedDates.add(date);
+        break;
+    }
+  }
+
+      void _setRangeSelectedOvlfrstDate(DateTime date) {
+    switch (ovlfrstselectedDates.length) {
+      case 0:
+        ovlfrstselectedDates.add(date);
+        break;
+      case 1:
+        var firstDate = selectedDates[0];
+        if (firstDate.isBefore(date)) {
+          ovlfrstselectedDates.add(date);
+        } else {
+          ovlfrstselectedDates.clear();
+          ovlfrstselectedDates.add(date);
+          ovlfrstselectedDates.add(firstDate);
+        }
+        break;
+      default:
+        ovlfrstselectedDates.clear();
+        ovlfrstselectedDates.add(date);
+        break;
+    }
+  }
+
+
+
+   
+
+  void _setMultiSelectedDate(DateTime date) {
+    final alreadyExistingDate = selectedDates.firstWhere((currentDate) =>
+        DateUtils.isSameDay(currentDate, date),
+        orElse: () => null
+    );
+
+    if (alreadyExistingDate != null) {
+      selectedDates.remove(alreadyExistingDate);
+    } else {
+      selectedDates.add(date);
+    }
+  }
+  
+
+
+  void _setMultiRglSelectedDate(DateTime date) {
+    final alreadyExistingDate = rglselectedDates.firstWhere((currentDate) =>
+        DateUtils.isSameDay(currentDate, date),
+        orElse: () => null
+    );
+
+    if (alreadyExistingDate != null) {
+      rglselectedDates.remove(alreadyExistingDate);
+    } else {
+      rglselectedDates.add(date);
+    }
+  }
+
+    void _setMultiOvlSelectedDate(DateTime date) {
+    final alreadyExistingDate = ovlselectedDates.firstWhere((currentDate) =>
+        DateUtils.isSameDay(currentDate, date),
+        orElse: () => null
+    );
+
+    if (alreadyExistingDate != null) {
+      ovlselectedDates.remove(alreadyExistingDate);
+    } else {
+      ovlselectedDates.add(date);
+    }
+  }
+
+    void _setMultiPmsSelectedDate(DateTime date) {
+    final alreadyExistingDate = pmsselectedDates.firstWhere((currentDate) =>
+        DateUtils.isSameDay(currentDate, date),
+        orElse: () => null
+    );
+
+    if (alreadyExistingDate != null) {
+      pmsselectedDates.remove(alreadyExistingDate);
+    } else {
+      pmsselectedDates.add(date);
+    }
+  }
+
+    void _setMultiOvlfrstSelectedDate(DateTime date) {
+    final alreadyExistingDate = ovlfrstselectedDates.firstWhere((currentDate) =>
+        DateUtils.isSameDay(currentDate, date),
+        orElse: () => null
+    );
+
+    if (alreadyExistingDate != null) {
+      ovlfrstselectedDates.remove(alreadyExistingDate);
+    } else {
+      ovlfrstselectedDates.add(date);
+    }
+  }
+
+
+    void _setMultiPmsfrstSelectedDate(DateTime date) {
+    final alreadyExistingDate = pmsfrstselectedDates.firstWhere((currentDate) =>
+        DateUtils.isSameDay(currentDate, date),
+        orElse: () => null
+    );
+
+    if (alreadyExistingDate != null) {
+      pmsfrstselectedDates.remove(alreadyExistingDate);
+    } else {
+      pmsfrstselectedDates.add(date);
+    }
+  }
+
+
+
+
 }
