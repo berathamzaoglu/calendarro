@@ -2,6 +2,7 @@ import 'package:calendarro/calendarro.dart';
 import 'package:calendarro/date_utils.dart';
 import 'package:flutter/material.dart';
 
+
 class CalendarroDayItem extends StatelessWidget {
   CalendarroDayItem({this.date, this.calendarroState, this.onTap});
 
@@ -26,6 +27,8 @@ class CalendarroDayItem extends StatelessWidget {
     bool daypmsfrstSelected = calendarroState.isPmsfrstDateSelected(date);
 
    var textColor;
+       if (daySelected) {textColor = Colors.white;
+    /*if(isToday){textColor = Colors.black;}*/} 
     if (dayrglSelected) {textColor = Colors.white;
     /*if(isToday){textColor = Colors.black;}*/} 
     if (dayovlfrstSelected) {textColor = Colors.white;} 
@@ -34,13 +37,18 @@ class CalendarroDayItem extends StatelessWidget {
     if (dayovlSelected) {textColor = Color(0xff259cfa);} 
     BoxDecoration boxDecoration;
    
-    if (daySelected) {     boxDecoration = BoxDecoration(
-       gradient: LinearGradient(
+    if (daySelected) {    var renk;
+            if(isToday){renk=0xffff4c51 ;}else{renk=0xffffffff;}
+      boxDecoration = BoxDecoration(     
+        gradient: LinearGradient(
         colors: [
       Color(0xffff825f),
       Color(0xffff4c51) ],
-      stops: [0,1]),
-        
+      stops: [0,1]), 
+        border: Border.all(
+            color: Color(renk),
+            width: 2.0,
+          ),
         
         shape: BoxShape.circle);
     } 
