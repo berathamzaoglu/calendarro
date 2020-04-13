@@ -22,8 +22,8 @@ class CalendarroDayItem extends StatelessWidget {
     bool dayrglSelected = calendarroState.isRglDateSelected(date);
     bool dayovlSelected = calendarroState.isOvlDateSelected(date);
     bool daypmsSelected = calendarroState.isPmsDateSelected(date);
-    bool dayovlfrstSelected = calendarroState.isPmsfrstDateSelected(date);
-    bool daypmsfrstSelected = calendarroState.isOvlfrstDateSelected(date);
+    bool dayovlfrstSelected = calendarroState.isOvlfrstDateSelected(date);
+    bool daypmsfrstSelected = calendarroState.isPmsfrstDateSelected(date);
 
    var textColor;
     if (dayrglSelected) {textColor = Colors.white;
